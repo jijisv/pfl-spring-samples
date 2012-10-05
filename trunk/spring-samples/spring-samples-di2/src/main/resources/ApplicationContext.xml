@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="john" class="com.pfl.samples.spring.di2.Person">
+		<property name="firstName" value="John" />
+		<property name="age" value="30"/>
+		<property name="presentAddress" >
+			<ref bean="presentAddressBean" />
+		</property>
+		<property name="permanentAddress">
+			<bean class="com.pfl.samples.spring.di2.Address">
+				<property name="houseNo" value="100"/>
+				<property name="street" value="ES Lane"/>
+			</bean>
+		</property>
+		<!-- 
+		<property name="emailIds">
+			<value>HOME=abc@yahoo.com, OFFICE=abc@office.com</value>
+		</property>
+        -->
+		<property name="emailIds">
+			<props>
+				<prop key="HOME">abc@yahoo.com</prop>
+				<prop key="OFFICE">abc@office.com</prop>
+			</props>
+		</property>
+		
+		<property name="friends">
+			<list>
+				<bean class="com.pfl.samples.spring.di2.Person"/>
+				<bean class="com.pfl.samples.spring.di2.Person"/>
+			</list>
+		</property>
+		
+		<property name="subscriptions">
+			<set>
+				<value>Tech Today Online</value>
+				<value>Information Week</value>
+			</set>
+		</property>
+		
+		<!--
+		<property name="subscriptions">
+			<value>Tech Today Online, Information Week</value>
+		</property>
+		-->
+		
+		<property name="phoneNumbers">
+			<map>
+				<entry key="Office" value="512-239-1235"></entry>
+				<entry key="Home"><value>123-123-2342</value></entry>
+			</map>
+		</property>
+		
+		<property name="aliases">
+			<array>
+				<value>Alias1</value>
+				<value>Alias2</value>
+			</array>
+		</property>
+		
+		<property name="lastName">
+			<null/>
+		</property>
+		
+	</bean>
+
+	<bean id="presentAddressBean" class="com.pfl.samples.spring.di2.Address">
+		<property name="houseNo" value="1503"/>
+		<property name="street" value="EV Lane"/>
+		<property name="city" value="Bangalore"/>
+		<property name="zipCode" value="560 001"/>
+	</bean>
+
+</beans>

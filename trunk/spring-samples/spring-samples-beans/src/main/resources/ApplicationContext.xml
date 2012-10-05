@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="personFactory" class="com.pfl.samples.spring.beans.PersonFactory"
+		factory-method="getInstance" />
+
+	<bean id="john" factory-bean="personFactory" factory-method="getJohn" />
+
+	<bean id="joy" class="com.pfl.samples.spring.beans.Person"
+		factory-bean="personFactory" factory-method="getJoy" />
+
+	<bean id="mary" class="com.pfl.samples.spring.beans.Person"
+		factory-bean="personFactory" factory-method="getPerson">
+		<constructor-arg value="Mary" />
+	</bean>
+</beans>

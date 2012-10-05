@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="personDefault" class="com.pfl.samples.spring.di1.Person"/>
+
+	<bean id="constArg1" class="com.pfl.samples.spring.di1.Person">
+		<constructor-arg value="John"/>
+		<constructor-arg value="Parameter_Order"/>
+		<constructor-arg value="20"/>
+	</bean>
+
+	<bean id="constArgType" class="com.pfl.samples.spring.di1.Person">
+		<constructor-arg type="int" value="25"/>
+		<constructor-arg type="String" value="John"/>
+		<constructor-arg type="String" value="Parameter_Type"/>
+	</bean>
+	<bean id="constArgIndex" class="com.pfl.samples.spring.di1.Person">
+		<constructor-arg index="2" value="35"/>
+		<constructor-arg index="0" value="John"/>
+		<constructor-arg index="1" value="Parameter_Index"/>
+	</bean>
+	
+	<bean id="addr1" class="com.pfl.samples.spring.di1.Address"/>
+	<bean id="constArgAnotherBean" class="com.pfl.samples.spring.di1.Person">
+		<constructor-arg index="0" value="John"/>
+		<constructor-arg type="int" value="35"/>
+		<constructor-arg index="1" value="Another_Bean"/>
+		<constructor-arg ref="addr1"/>
+	</bean>
+	
+	<bean id="constArgByName" class="com.pfl.samples.spring.di1.Person">
+		<constructor-arg name="age" value="30"/>
+		<constructor-arg name="firstName" value="John"/>
+		<constructor-arg name="lastName" value="Parameter_Name"/>
+	</bean>
+
+</beans>
