@@ -10,5 +10,7 @@
   	<module>spring-samples-beans</module>
   	<module>spring-samples-di2</module>
   	<module>spring-samples-cpns</module>
+  	<module>spring-samples-autowire</module>
+  	<module>spring-samples-methodinject</module>
   </modules>
 </project>

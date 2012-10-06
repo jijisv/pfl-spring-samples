@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean name="fileDAO" class="com.pfl.samples.spring.methodinject.impl.FileAppDAO"/>
+	<bean name="dbDAO" class="com.pfl.samples.spring.methodinject.impl.DBAppDAO"/>
+	<bean name="fileDAOFactory" class="com.pfl.samples.spring.methodinject.DAOFactory">
+		<lookup-method name="getDAO" bean="fileDAO"/>
+	</bean>
+	<bean name="dbDAOFactory" class="com.pfl.samples.spring.methodinject.DAOFactory">
+		<lookup-method name="getDAO" bean="dbDAO"/>
+	</bean>
+
+
+	<bean name="dbSave" class="com.pfl.samples.spring.methodinject.replacers.DBSave"/>
+	<bean name="fileSave" class="com.pfl.samples.spring.methodinject.replacers.FileSave"/>
+	<bean name="fileDAOMR" class="com.pfl.samples.spring.methodinject.AppDAO">
+		<replaced-method name="save" replacer="fileSave">
+			<arg-type>java.lang.String</arg-type>
+		</replaced-method>
+	</bean>
+	<bean name="dbDAOMR" class="com.pfl.samples.spring.methodinject.AppDAO">
+		<replaced-method name="save" replacer="dbSave">
+			<arg-type>java.lang.String</arg-type>
+		</replaced-method>
+	</bean>
+	<bean name="fileDAOFactoryMR" class="com.pfl.samples.spring.methodinject.DAOFactory">
+		<lookup-method name="getDAO" bean="fileDAOMR"/>
+	</bean>
+	<bean name="dbDAOFactoryMR" class="com.pfl.samples.spring.methodinject.DAOFactory">
+		<lookup-method name="getDAO" bean="dbDAOMR"/>
+	</bean>
+
+	
+
+</beans>
