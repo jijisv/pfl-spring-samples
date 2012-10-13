@@ -12,5 +12,7 @@
   	<module>spring-samples-cpns</module>
   	<module>spring-samples-autowire</module>
   	<module>spring-samples-methodinject</module>
+  	<module>spring-samples-scopes</module>
+  	<module>spring-samples-annotation</module>
   </modules>
 </project>
