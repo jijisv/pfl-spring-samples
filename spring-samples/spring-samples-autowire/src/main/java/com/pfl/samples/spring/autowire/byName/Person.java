@@ -111,5 +111,13 @@ public class Person {
 	public void setPermanentAddress(Address permanentAddress) {
 		this.permanentAddress = permanentAddress;
 	}
-
+	
+	/**
+	 * print
+	 */
+    public void print() {
+        System.out.println(firstName + " " + lastName + ", " + age + "yrs.");
+        System.out.println(presentAddress);
+        System.out.println(permanentAddress);
+    }
 }

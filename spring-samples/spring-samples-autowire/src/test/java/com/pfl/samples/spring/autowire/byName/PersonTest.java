@@ -23,8 +23,9 @@ public class PersonTest {
 			Person personBean1 = ctx.getBean("personBean", Person.class);
 			Assert.assertEquals(personBean1.getPresentAddress().getHouseNo(), "123");
 			Assert.assertEquals(personBean1.getPermanentAddress().getHouseNo(), "321");
+			personBean1.print();
 		} catch (Exception e) {
-			e.printStackTrace();
+			Assert.assertTrue(e.getMessage(), false);
 		}
 	}
 

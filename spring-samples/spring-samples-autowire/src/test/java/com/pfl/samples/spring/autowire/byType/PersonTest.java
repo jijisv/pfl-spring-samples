@@ -22,9 +22,10 @@ public class PersonTest {
 			ApplicationContext ctx = new ClassPathXmlApplicationContext("ApplicationContextByType.xml");
 			Person personBean1 = ctx.getBean("personBean", Person.class);
 			Assert.assertEquals(personBean1.getAddress().getHouseNo(), "098");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+            personBean1.print();
+        } catch (Exception e) {
+            Assert.assertTrue(e.getMessage(), false);
+        }
 	}
 
 }

@@ -119,4 +119,11 @@ public class Person {
 		this.address = address;
 	}
 
+    /**
+     * print
+     */
+    public void print() {
+        System.out.println(firstName + " " + lastName + ", " + age + "yrs.");
+        System.out.println(address);
+    }
 }
