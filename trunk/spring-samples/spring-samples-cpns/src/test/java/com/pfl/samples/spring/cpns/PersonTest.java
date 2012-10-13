@@ -28,6 +28,11 @@ public class PersonTest {
 			Assert.assertEquals(personBean2.getFirstName(), "Joe");
 			Assert.assertEquals(personBean2.getAddress().getHouseNo(), "321");
 			
+            Person personBean3 = ctx.getBean("person3", Person.class);
+            Assert.assertEquals(personBean3.getFirstName(), "Mary");
+            Assert.assertEquals(personBean3.getAddress().getHouseNo(), "321");
+            Assert.assertEquals(personBean3.getEmergencyAddrRef().getHouseNo(), "123");
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
