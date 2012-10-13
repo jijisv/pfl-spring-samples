@@ -22,4 +22,8 @@
 	<bean name="person2" class="com.pfl.samples.spring.cpns.Person"
 		  p:firstName="Joe" p:lastName="John" p:age="30" p:address-ref="address2"/>
 	
+    <bean name="person3" class="com.pfl.samples.spring.cpns.Person"
+          c:_0="Mary" c:_1="Joe" c:_2="30" p:address-ref="address2" p:emergencyAddrRef-ref="address1"/>
+	
+	
 </beans>

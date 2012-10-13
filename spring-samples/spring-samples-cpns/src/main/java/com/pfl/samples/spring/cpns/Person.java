@@ -16,6 +16,8 @@ public class Person {
 	private int age;
 	
 	private Address address;
+	
+	private Address emergencyAddrRef;
 
 	/**
 	 * Default Constructor
@@ -41,7 +43,20 @@ public class Person {
 		this.address = address;
 	}
 
-	/**
+    /**
+     * Constructor.
+     * 
+     * @param firstName
+     * @param lastName
+     * @param age
+     */
+    public Person(String firstName, String lastName, int age) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+    }
+
+    /**
 	 * Return firstName.
 	 * 
 	 * @return the firstName
@@ -110,5 +125,21 @@ public class Person {
 	public void setAddress(Address address) {
 		this.address = address;
 	}
+
+    /**
+     * Return emergencyAddrRef.
+     * @return the emergencyAddrRef
+     */
+    public Address getEmergencyAddrRef() {
+        return emergencyAddrRef;
+    }
+
+    /**
+     * Set emergencyAddrRef
+     * @param emergencyAddrRef the emergencyAddrRef to set
+     */
+    public void setEmergencyAddrRef(Address emergencyAddrRef) {
+        this.emergencyAddrRef = emergencyAddrRef;
+    }
 
 }
