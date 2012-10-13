@@ -22,14 +22,16 @@ public class PersonTest {
 			ApplicationContext ctx = new ClassPathXmlApplicationContext("ApplicationContextConstructor.xml");
 			Person personBean1 = ctx.getBean("person1", Person.class);
 			Assert.assertEquals(personBean1.getAddress().getHouseNo(), "123");
-			Assert.assertEquals(personBean1.getFirstName(), "");
+			Assert.assertEquals(personBean1.getFirstName(), "John");
+            personBean1.print();
 			
 			Person personBean2 = ctx.getBean("person2", Person.class);
 			Assert.assertEquals(personBean2.getAddress().getHouseNo(), "123");
 			Assert.assertEquals(personBean2.getFirstName(), "Joe");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+            personBean2.print();
+        } catch (Exception e) {
+            Assert.assertTrue(e.getMessage(), false);
+        }
 	}
 
 }

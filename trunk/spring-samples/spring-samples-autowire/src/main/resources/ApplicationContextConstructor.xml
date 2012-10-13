@@ -9,7 +9,7 @@
 		  p:houseNo="123" p:street="XXX" p:city="Blr" p:zipCode="560001"/>
 		  
 	<bean name="person1" class="com.pfl.samples.spring.autowire.constructor.Person"
-		  p:age="30" autowire="constructor"/>
+	      p:firstName="John" p:age="30" autowire="constructor"/>
 	
 	<bean name="person2" class="com.pfl.samples.spring.autowire.constructor.Person"
 		  c:firstName="Joe" c:lastName="John" c:age="30" autowire="constructor"/>
