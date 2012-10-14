@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                        http://www.springframework.org/schema/beans/spring-beans.xsd 
+                        http://www.springframework.org/schema/context 
+                        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:annotation-config/>
+
+    <bean class="com.pfl.samples.spring.annotation.Address" p:address="Home Address (Custom)">
+        <qualifier type="com.pfl.samples.spring.annotation.HomeAddress"/>
+    </bean>
+    
+    <bean class="com.pfl.samples.spring.annotation.Address" p:address="Office Address (Custom)">
+        <qualifier type="com.pfl.samples.spring.annotation.OfficeAdress"/>
+    </bean>
+
+    <bean class="com.pfl.samples.spring.annotation.Address" p:address="Addr1 Address (Custom)" >
+        <qualifier type="com.pfl.samples.spring.annotation.ContactAddress">
+            <attribute key="group" value="addr1"/>
+        </qualifier>
+    </bean>
+    <bean class="com.pfl.samples.spring.annotation.Address" p:address="Addr2 Address (Custom)" >
+        <qualifier type="com.pfl.samples.spring.annotation.ContactAddress">
+            <attribute key="group" value="addr2"/>
+        </qualifier>
+    </bean>
+
+    <bean class="com.pfl.samples.spring.annotation.Address" p:address="addresses1 (Custom)">
+        <qualifier type="com.pfl.samples.spring.annotation.ContactAddress">
+            <attribute key="group" value="addressList"/>
+        </qualifier>
+    </bean>
+    <bean class="com.pfl.samples.spring.annotation.Address" p:address="addresses2 (Custom)" >
+        <qualifier type="com.pfl.samples.spring.annotation.ContactAddress">
+            <attribute key="group" value="addressList"/>
+        </qualifier>
+    </bean>
+    
+    <bean id="a1" class="com.pfl.samples.spring.annotation.Address" p:address="addressMap1 (Custom)">
+        <qualifier type="com.pfl.samples.spring.annotation.ContactAddress">
+            <attribute key="group" value="addressMap"/>
+        </qualifier>
+    </bean>
+    <bean id="a2" class="com.pfl.samples.spring.annotation.Address" p:address="addressMap2 (Custom)" >
+        <meta key="group" value="addressMap"/>
+    </bean>
+
+    <bean class="com.pfl.samples.spring.annotation.PersonWithCustomQualifier" p:name="John" />
+
+</beans>
