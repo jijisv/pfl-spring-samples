@@ -1,5 +1,5 @@
 /**
- * PersonTest.java
+ * PersonWithQualifierTest.java
  * http://programmingforliving.blogspot.com
  */
 package com.pfl.samples.spring.annotation;
@@ -13,21 +13,18 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * 
  * @author Jiji_Sasidharan
  */
-public class PersonTest {
-
-    /**
-     * test
-     */
+public class PersonWithQualifierTest {
+    
     @Test
-    public void test()  {
+    public void test() {
         try {
-            ApplicationContext ctx = new ClassPathXmlApplicationContext("ApplicationContext.xml");
-            Person p = ctx.getBean(Person.class);
+            ApplicationContext ctx = new ClassPathXmlApplicationContext("ApplicationContextWithQualifier.xml");
+            PersonWithQualifier p = ctx.getBean(PersonWithQualifier.class);
             p.print();
         } catch (Exception e) {
             e.printStackTrace();
             Assert.assertTrue(e.getMessage(), false);
         }
-
     }
+
 }
