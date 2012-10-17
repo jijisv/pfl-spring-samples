@@ -14,5 +14,7 @@
   	<module>spring-samples-methodinject</module>
   	<module>spring-samples-scopes</module>
   	<module>spring-samples-annotation</module>
+  	<module>spring-samples-javaconfig</module>
+  	<module>spring-samples-events</module>
   </modules>
 </project>
