@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean class="com.pfl.samples.spring.validation.Address" p:zipCode="123"/>
+    <bean class="com.pfl.samples.spring.validation.Person" autowire="byType" />
+
+    <bean id="addressValidator" class="com.pfl.samples.spring.validation.AddressValidator"/>
+    <bean id="personValidator" class="com.pfl.samples.spring.validation.PersonValidator" autowire="byName"/>
+
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basename" value="com.pfl.samples.spring.validation.error_messages"/>
+    </bean>
+
+</beans>

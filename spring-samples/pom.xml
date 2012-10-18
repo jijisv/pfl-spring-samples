@@ -16,5 +16,6 @@
   	<module>spring-samples-annotation</module>
   	<module>spring-samples-javaconfig</module>
   	<module>spring-samples-events</module>
+  	<module>spring-samples-validation</module>
   </modules>
 </project>
