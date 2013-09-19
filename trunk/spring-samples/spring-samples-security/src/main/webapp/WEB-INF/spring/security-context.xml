@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<security:http create-session="stateless" entry-point-ref="digestEntryPoint">
+		<security:intercept-url pattern="/**" access="ROLE_ADMIN" />
+
+		<security:http-basic />
+		<security:custom-filter ref="digestFilter" after="BASIC_AUTH_FILTER" />
+	</security:http>
+
+	<bean id="digestFilter" class="org.springframework.security.web.authentication.www.DigestAuthenticationFilter">
+		<property name="userDetailsService" ref="userService" />
+		<property name="authenticationEntryPoint" ref="digestEntryPoint" />
+	</bean>
+
+	<bean id="digestEntryPoint"	class="org.springframework.security.web.authentication.www.DigestAuthenticationEntryPoint">
+		<property name="realmName"	value="Digest Authentication Realm" />
+		<property name="key" value="acegi" />
+	</bean>
+	
+	<security:authentication-manager>
+		<security:authentication-provider user-service-ref="userService"/>
+	</security:authentication-manager>
+
+    <bean name="userService" class="com.pfl.samples.spring.security.CustomUserDetailsService">
+        <constructor-arg ref="userConfigStore"/>
+    </bean>
+
+    <bean name="userConfigStore" class="com.pfl.samples.spring.security.SecuredConfigurationStore">
+        <constructor-arg value="classpath:users.dat"/>
+    </bean>
+    
+</beans>

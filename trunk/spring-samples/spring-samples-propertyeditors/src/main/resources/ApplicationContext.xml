@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean class="com.pfl.samples.spring.propertyeditors.Person">
+        <property name="name" value="John"/>
+        <property name="age" value="10"/>
+        <property name="address" value="#20,E.L Street,LA,11123"/>
+    </bean>
+
+    <bean class="com.pfl.samples.spring.propertyeditors.Address">
+        <property name="doorNo" value="#21" />
+        <property name="street" value="E24. Street" />
+        <property name="city" value="LA" />
+        <property name="zipCode" value="1231" />
+        <property name="addressType" value="Home" />
+    </bean>    
+    
+    <bean class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+        <!-- 
+        <property name="customEditors">
+            <map>
+                <entry key="com.pfl.samples.spring.propertyeditors.AddressType" 
+                     value="com.pfl.samples.spring.propertyeditors.editor.AddressTypeEditor"/>
+            </map>
+        </property>
+         -->
+         <property name="propertyEditorRegistrars">
+            <list>
+                <bean class="com.pfl.samples.spring.propertyeditors.CustomPropertyEditorRegistrar"/>
+            </list>
+         </property>
+    </bean>
+    
+</beans>
