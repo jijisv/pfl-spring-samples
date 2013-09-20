@@ -21,5 +21,6 @@
   	<module>spring-samples-propertyeditors</module>
     <module>spring-samples-rest</module>
     <module>spring-samples-security</module>
+    <module>spring-samples-jms</module>
   </modules>
 </project>
